@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .text-div {
+            height: 100vh;
+            -webkit-flex-flow: column wrap;
+            -ms-flex-flow: column wrap;
+            flex-flow: column wrap;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack:center;
+            -webkit-justify-content:center;
+            -ms-flex-pack:center;
+            justify-content:center;
+            text-align: center;
+        }
+    </style>
+    <title>greetings</title>
+  </head>
+  <body id="body">
+    <div class="text-div">
+        <h1 id="text" style="font-size: 100px; font-weight: bold; color: white;"></h1>
+    </div>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">enter your name</h5>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="name" placeholder="name">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onClick="okay();">okay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        $('.modal').modal('show');
+
+        const backgrounds = ["#f44336", "#E91E63", "#9C27B0", "#673AB7", "#3F51B5", "#2196F3", "#00BCD4", "#009688", "#4CAF50", "#FFEB3B"];
+        let i = 0;
+
+        function okay() {
+            const name = $('#name')[0].value;
+            if (name && name.length > 0) {
+                $('.modal').modal('hide');
+                showText(name);
+            }
+        }
+
+        function showText(name) {
+            const text = $('#text')[0];
+            text.innerHTML = 'fuck you, ' + name;
+            document.title = 'fuck you🖕🏻'
+            first();    
+        }
+
+        function first() {
+            const body = $('#body')[0];
+
+            i++;
+            if (i > backgrounds.length - 1) {
+                i = 0;
+            }
+
+            body.style.backgroundColor = backgrounds[i];
+            setTimeout(() => { second(); }, 100);
+        }
+
+        function second() {
+            const body = $('#body')[0];
+
+            i++;
+            if (i > backgrounds.length - 1) {
+                i = 0;
+            }
+
+            body.style.backgroundColor = backgrounds[i];
+            setTimeout(() => { first(); }, 100);
+        }
+    </script>
+  </body>
+</html>
